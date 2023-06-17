@@ -5,13 +5,28 @@ import {
   Text,
   TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import bgImage from "../assets/bg.png";
+import { app, auth } from "../firebase";
 
 const TitleBar = () => {
-  const user = "Javohir";
+  const [userName, setUserName] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const auth = app.auth()
+  
+
+
+  app.auth().onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  });
+
   const date = new Date();
   const months = [
     "Jan",
@@ -52,7 +67,7 @@ const TitleBar = () => {
               placeholderTextColor={"#ffffff"}
             />
           </View>
-          <Text style={styles.titlebar_text}>Good Morning, {user} </Text>
+          <Text style={styles.titlebar_text}>Good Morning, {userName} </Text>
           <Text style={styles.titlebar_time}>
             {date.getDate()}
             {abr} {month}, {date.getFullYear()}

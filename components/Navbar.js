@@ -8,7 +8,12 @@ const Navbar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.menu}>
-        <FontAwesomeIcon icon={faHome} size={24} color="#444" />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Home")}
+          style={{ padding: 16 }}
+        >
+          <FontAwesomeIcon icon={faHome} size={24} color="#444" />
+        </TouchableOpacity>
       </View>
       <View style={styles.button_wrapper}>
         <View style={styles.button}>
@@ -21,7 +26,12 @@ const Navbar = () => {
         </View>
       </View>
       <View style={styles.menu}>
-        <FontAwesomeIcon icon={faUser} size={24} color="#444" />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Login")}
+          style={{ padding: 16}}
+        >
+          <FontAwesomeIcon icon={faUser} size={24} color="#444" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -30,7 +40,6 @@ const Navbar = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    padding: 16,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

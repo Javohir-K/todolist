@@ -18,7 +18,7 @@ export default function HomeScreen() {
     <View style={{ flex: 1 }}>
       <TitleBar />
       <TaskList />
-      <Navbar />
+      {/* <Navbar /> */}
     </View>
   );
 }

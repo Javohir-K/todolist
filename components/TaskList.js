@@ -30,8 +30,8 @@ const TaskList = () => {
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}
       >
-        {data.map((item) => (
-          <View style={styles.taskcard}>
+        {data.map((item, _id) => (
+          <View id={item._id} style={styles.taskcard}>
             <View style={{ backgroundColor: "#55aaff", width: 8 }}></View>
             <View
               style={{
